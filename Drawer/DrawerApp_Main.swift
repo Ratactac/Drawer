@@ -44,15 +44,16 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: - Application Lifecycle
     func applicationDidFinishLaunching(_ notification: Notification) {
-        print("🔍 menuBarIcon au démarrage : \(menuBarIcon)")
-        print("🔍 UserDefaults menuBarIcon : \(UserDefaults.standard.object(forKey: "menuBarIcon") ?? "nil")")
+        print("🚀 Application launched")
+        print("📍 Bundle Identifier: \(Bundle.main.bundleIdentifier ?? "nil")")
         
         // Mode accessoire (pas dans le Dock)
         NSApp.setActivationPolicy(.accessory)
         
-        // Configurer le lancement au démarrage si activé
-        configureLaunchAtLoginIfNeeded()
+        // NOUVEAU : Synchroniser l'état du login item avec UserDefaults au premier lancement
+        syncLoginItemState()
         
+       
         // SOLUTION : Toujours créer le statusBarItem
         setupStatusBar()
         
@@ -506,47 +507,85 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         let launchAtLogin = UserDefaults.standard.bool(forKey: "launchAtLogin")
         
         if #available(macOS 13.0, *) {
-            // Nettoyer les doublons d'abord
-            cleanupLoginItemDuplicates()
+            let currentStatus = SMAppService.mainApp.status
             
+            // Ne modifier que si nécessaire
             if launchAtLogin {
-                let status = SMAppService.mainApp.status
-                if status != .enabled {
+                // Activer uniquement si pas déjà activé
+                if currentStatus != .enabled {
                     do {
                         try SMAppService.mainApp.register()
+                        print("✅ Launch at login enabled")
                     } catch {
-                        print("Failed to enable launch at login: \(error)")
+                        print("❌ Failed to enable launch at login: \(error)")
                     }
+                } else {
+                    print("✅ Launch at login already enabled")
                 }
             } else {
-                do {
-                    try SMAppService.mainApp.unregister()
-                } catch {
-                    // Ignorer si déjà non enregistrée
+                // Désactiver uniquement si actuellement activé
+                if currentStatus == .enabled {
+                    do {
+                        try SMAppService.mainApp.unregister()
+                        print("🔴 Launch at login disabled")
+                    } catch {
+                        print("❌ Failed to disable launch at login: \(error)")
+                    }
                 }
             }
         }
     }
     
-    private func cleanupLoginItemDuplicates() {
+    private func syncLoginItemState() {
         if #available(macOS 13.0, *) {
-            try? SMAppService.mainApp.unregister()
-            Thread.sleep(forTimeInterval: 0.1)
+            let currentStatus = SMAppService.mainApp.status
+            let savedPreference = UserDefaults.standard.bool(forKey: "launchAtLogin")
+            
+            // Si l'état réel ne correspond pas à la préférence sauvegardée
+            if currentStatus == .enabled && !savedPreference {
+                // L'app est dans les login items mais pas dans les préférences
+                UserDefaults.standard.set(true, forKey: "launchAtLogin")
+                print("📝 Synced: Launch at login was enabled externally")
+            } else if currentStatus != .enabled && savedPreference {
+                // La préférence dit qu'elle devrait être activée mais elle ne l'est pas
+                do {
+                    try SMAppService.mainApp.register()
+                    print("✅ Launch at login re-enabled on sync")
+                } catch {
+                    print("❌ Failed to sync launch at login: \(error)")
+                    UserDefaults.standard.set(false, forKey: "launchAtLogin")
+                }
+            } else {
+                print("✅ Launch at login state is synchronized")
+            }
         }
     }
-    
+
     static func setLaunchAtLogin(_ enabled: Bool) {
         UserDefaults.standard.set(enabled, forKey: "launchAtLogin")
         
         if #available(macOS 13.0, *) {
-            try? SMAppService.mainApp.unregister()
+            let currentStatus = SMAppService.mainApp.status
             
             if enabled {
-                Thread.sleep(forTimeInterval: 0.1)
-                do {
-                    try SMAppService.mainApp.register()
-                } catch {
-                    print("Failed to enable launch at login: \(error)")
+                // Activer uniquement si pas déjà activé
+                if currentStatus != .enabled {
+                    do {
+                        try SMAppService.mainApp.register()
+                        print("✅ Launch at login enabled from preferences")
+                    } catch {
+                        print("❌ Failed to enable launch at login: \(error)")
+                    }
+                }
+            } else {
+                // Désactiver uniquement si actuellement activé
+                if currentStatus == .enabled {
+                    do {
+                        try SMAppService.mainApp.unregister()
+                        print("🔴 Launch at login disabled from preferences")
+                    } catch {
+                        print("❌ Failed to disable launch at login: \(error)")
+                    }
                 }
             }
         }
