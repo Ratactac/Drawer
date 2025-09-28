@@ -1,6 +1,6 @@
 # Drawer
 
-<img src=".github/Icon-cropped.png" width="200" alt="App icon" align="left"/>
+<img src=".github/icon-cropped.png" width="200" alt="App icon" align="left"/>
 
 <div>
 <h3>Drawer</h3>
@@ -100,7 +100,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot2"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot2"/><br/>
 
 </div>
 
@@ -109,7 +109,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot3"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot3"/><br/>
 
 </div>
 
@@ -118,7 +118,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot4"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot4"/><br/>
 
 </div>
 
@@ -127,7 +127,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot5"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot5"/><br/>
 
 </div>
 
@@ -135,7 +135,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot6"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot6"/><br/>
 
 </div>
 
@@ -143,7 +143,7 @@ git clone https://github.com/Drawer/Drawer.git
 <br/>
 <br/>
 
-<img src=".github/screenshot.png" width="824" alt="Screenshot7"/><br/>
+<img src=".github/screenshot.png" width="824" alt="screenshot7"/><br/>
 
 </div>
 
