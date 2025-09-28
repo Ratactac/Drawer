@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		BA2F10F22E885A7400EBAFD5 /* PBXContainerItemProxy */ = {
+		BA2F11B62E8883BC00EBAFD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA2F10D82E885A7300EBAFD5 /* Project object */;
+			containerPortal = BA2F119C2E8883BA00EBAFD5 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA2F10DF2E885A7300EBAFD5;
+			remoteGlobalIDString = BA2F11A32E8883BA00EBAFD5;
 			remoteInfo = Drawer;
 		};
-		BA2F10FC2E885A7400EBAFD5 /* PBXContainerItemProxy */ = {
+		BA2F11C02E8883BC00EBAFD5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BA2F10D82E885A7300EBAFD5 /* Project object */;
+			containerPortal = BA2F119C2E8883BA00EBAFD5 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BA2F10DF2E885A7300EBAFD5;
+			remoteGlobalIDString = BA2F11A32E8883BA00EBAFD5;
 			remoteInfo = Drawer;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA2F10E02E885A7300EBAFD5 /* Drawer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drawer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA2F10F12E885A7400EBAFD5 /* DrawerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA2F10FB2E885A7400EBAFD5 /* DrawerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2F11A42E8883BA00EBAFD5 /* Drawer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drawer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2F11B52E8883BC00EBAFD5 /* DrawerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2F11BF2E8883BC00EBAFD5 /* DrawerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BA2F10E22E885A7300EBAFD5 /* Drawer */ = {
+		BA2F11A62E8883BA00EBAFD5 /* Drawer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Drawer;
 			sourceTree = "<group>";
@@ -38,21 +38,21 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA2F10DD2E885A7300EBAFD5 /* Frameworks */ = {
+		BA2F11A12E8883BA00EBAFD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10EE2E885A7400EBAFD5 /* Frameworks */ = {
+		BA2F11B22E8883BC00EBAFD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10F82E885A7400EBAFD5 /* Frameworks */ = {
+		BA2F11BC2E8883BC00EBAFD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,20 +62,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA2F10D72E885A7300EBAFD5 = {
+		BA2F119B2E8883BA00EBAFD5 = {
 			isa = PBXGroup;
 			children = (
-				BA2F10E22E885A7300EBAFD5 /* Drawer */,
-				BA2F10E12E885A7300EBAFD5 /* Products */,
+				BA2F11A62E8883BA00EBAFD5 /* Drawer */,
+				BA2F11A52E8883BA00EBAFD5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BA2F10E12E885A7300EBAFD5 /* Products */ = {
+		BA2F11A52E8883BA00EBAFD5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA2F10E02E885A7300EBAFD5 /* Drawer.app */,
-				BA2F10F12E885A7400EBAFD5 /* DrawerTests.xctest */,
-				BA2F10FB2E885A7400EBAFD5 /* DrawerUITests.xctest */,
+				BA2F11A42E8883BA00EBAFD5 /* Drawer.app */,
+				BA2F11B52E8883BC00EBAFD5 /* DrawerTests.xctest */,
+				BA2F11BF2E8883BC00EBAFD5 /* DrawerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,128 +83,128 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA2F10DF2E885A7300EBAFD5 /* Drawer */ = {
+		BA2F11A32E8883BA00EBAFD5 /* Drawer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA2F11052E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "Drawer" */;
+			buildConfigurationList = BA2F11C92E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "Drawer" */;
 			buildPhases = (
-				BA2F10DC2E885A7300EBAFD5 /* Sources */,
-				BA2F10DD2E885A7300EBAFD5 /* Frameworks */,
-				BA2F10DE2E885A7300EBAFD5 /* Resources */,
+				BA2F11A02E8883BA00EBAFD5 /* Sources */,
+				BA2F11A12E8883BA00EBAFD5 /* Frameworks */,
+				BA2F11A22E8883BA00EBAFD5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BA2F10E22E885A7300EBAFD5 /* Drawer */,
+				BA2F11A62E8883BA00EBAFD5 /* Drawer */,
 			);
 			name = Drawer;
 			packageProductDependencies = (
 			);
 			productName = Drawer;
-			productReference = BA2F10E02E885A7300EBAFD5 /* Drawer.app */;
+			productReference = BA2F11A42E8883BA00EBAFD5 /* Drawer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BA2F10F02E885A7400EBAFD5 /* DrawerTests */ = {
+		BA2F11B42E8883BC00EBAFD5 /* DrawerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA2F11082E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerTests" */;
+			buildConfigurationList = BA2F11CC2E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerTests" */;
 			buildPhases = (
-				BA2F10ED2E885A7400EBAFD5 /* Sources */,
-				BA2F10EE2E885A7400EBAFD5 /* Frameworks */,
-				BA2F10EF2E885A7400EBAFD5 /* Resources */,
+				BA2F11B12E8883BC00EBAFD5 /* Sources */,
+				BA2F11B22E8883BC00EBAFD5 /* Frameworks */,
+				BA2F11B32E8883BC00EBAFD5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA2F10F32E885A7400EBAFD5 /* PBXTargetDependency */,
+				BA2F11B72E8883BC00EBAFD5 /* PBXTargetDependency */,
 			);
 			name = DrawerTests;
 			packageProductDependencies = (
 			);
 			productName = DrawerTests;
-			productReference = BA2F10F12E885A7400EBAFD5 /* DrawerTests.xctest */;
+			productReference = BA2F11B52E8883BC00EBAFD5 /* DrawerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BA2F10FA2E885A7400EBAFD5 /* DrawerUITests */ = {
+		BA2F11BE2E8883BC00EBAFD5 /* DrawerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BA2F110B2E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerUITests" */;
+			buildConfigurationList = BA2F11CF2E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerUITests" */;
 			buildPhases = (
-				BA2F10F72E885A7400EBAFD5 /* Sources */,
-				BA2F10F82E885A7400EBAFD5 /* Frameworks */,
-				BA2F10F92E885A7400EBAFD5 /* Resources */,
+				BA2F11BB2E8883BC00EBAFD5 /* Sources */,
+				BA2F11BC2E8883BC00EBAFD5 /* Frameworks */,
+				BA2F11BD2E8883BC00EBAFD5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BA2F10FD2E885A7400EBAFD5 /* PBXTargetDependency */,
+				BA2F11C12E8883BC00EBAFD5 /* PBXTargetDependency */,
 			);
 			name = DrawerUITests;
 			packageProductDependencies = (
 			);
 			productName = DrawerUITests;
-			productReference = BA2F10FB2E885A7400EBAFD5 /* DrawerUITests.xctest */;
+			productReference = BA2F11BF2E8883BC00EBAFD5 /* DrawerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BA2F10D82E885A7300EBAFD5 /* Project object */ = {
+		BA2F119C2E8883BA00EBAFD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					BA2F10DF2E885A7300EBAFD5 = {
+					BA2F11A32E8883BA00EBAFD5 = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					BA2F10F02E885A7400EBAFD5 = {
+					BA2F11B42E8883BC00EBAFD5 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = BA2F10DF2E885A7300EBAFD5;
+						TestTargetID = BA2F11A32E8883BA00EBAFD5;
 					};
-					BA2F10FA2E885A7400EBAFD5 = {
+					BA2F11BE2E8883BC00EBAFD5 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = BA2F10DF2E885A7300EBAFD5;
+						TestTargetID = BA2F11A32E8883BA00EBAFD5;
 					};
 				};
 			};
-			buildConfigurationList = BA2F10DB2E885A7300EBAFD5 /* Build configuration list for PBXProject "Drawer" */;
+			buildConfigurationList = BA2F119F2E8883BA00EBAFD5 /* Build configuration list for PBXProject "Drawer" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = BA2F10D72E885A7300EBAFD5;
+			mainGroup = BA2F119B2E8883BA00EBAFD5;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = BA2F10E12E885A7300EBAFD5 /* Products */;
+			productRefGroup = BA2F11A52E8883BA00EBAFD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA2F10DF2E885A7300EBAFD5 /* Drawer */,
-				BA2F10F02E885A7400EBAFD5 /* DrawerTests */,
-				BA2F10FA2E885A7400EBAFD5 /* DrawerUITests */,
+				BA2F11A32E8883BA00EBAFD5 /* Drawer */,
+				BA2F11B42E8883BC00EBAFD5 /* DrawerTests */,
+				BA2F11BE2E8883BC00EBAFD5 /* DrawerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BA2F10DE2E885A7300EBAFD5 /* Resources */ = {
+		BA2F11A22E8883BA00EBAFD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10EF2E885A7400EBAFD5 /* Resources */ = {
+		BA2F11B32E8883BC00EBAFD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10F92E885A7400EBAFD5 /* Resources */ = {
+		BA2F11BD2E8883BC00EBAFD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,21 +214,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BA2F10DC2E885A7300EBAFD5 /* Sources */ = {
+		BA2F11A02E8883BA00EBAFD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10ED2E885A7400EBAFD5 /* Sources */ = {
+		BA2F11B12E8883BC00EBAFD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2F10F72E885A7400EBAFD5 /* Sources */ = {
+		BA2F11BB2E8883BC00EBAFD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -238,20 +238,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BA2F10F32E885A7400EBAFD5 /* PBXTargetDependency */ = {
+		BA2F11B72E8883BC00EBAFD5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA2F10DF2E885A7300EBAFD5 /* Drawer */;
-			targetProxy = BA2F10F22E885A7400EBAFD5 /* PBXContainerItemProxy */;
+			target = BA2F11A32E8883BA00EBAFD5 /* Drawer */;
+			targetProxy = BA2F11B62E8883BC00EBAFD5 /* PBXContainerItemProxy */;
 		};
-		BA2F10FD2E885A7400EBAFD5 /* PBXTargetDependency */ = {
+		BA2F11C12E8883BC00EBAFD5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BA2F10DF2E885A7300EBAFD5 /* Drawer */;
-			targetProxy = BA2F10FC2E885A7400EBAFD5 /* PBXContainerItemProxy */;
+			target = BA2F11A32E8883BA00EBAFD5 /* Drawer */;
+			targetProxy = BA2F11C02E8883BC00EBAFD5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BA2F11032E885A7400EBAFD5 /* Debug */ = {
+		BA2F11C72E8883BC00EBAFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,7 +304,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.7;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -314,7 +314,7 @@
 			};
 			name = Debug;
 		};
-		BA2F11042E885A7400EBAFD5 /* Release */ = {
+		BA2F11C82E8883BC00EBAFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -361,7 +361,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.7;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -369,11 +369,12 @@
 			};
 			name = Release;
 		};
-		BA2F11062E885A7400EBAFD5 /* Debug */ = {
+		BA2F11CA2E8883BC00EBAFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Drawer/Drawer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -381,7 +382,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Drawer/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Drawer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -390,7 +390,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 2.4.2;
+				MARKETING_VERSION = 2.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = hansi.Drawer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -398,11 +398,12 @@
 			};
 			name = Debug;
 		};
-		BA2F11072E885A7400EBAFD5 /* Release */ = {
+		BA2F11CB2E8883BC00EBAFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Drawer/Drawer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -410,7 +411,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Drawer/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Drawer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -419,7 +419,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 2.4.2;
+				MARKETING_VERSION = 2.4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = hansi.Drawer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -427,7 +427,7 @@
 			};
 			name = Release;
 		};
-		BA2F11092E885A7400EBAFD5 /* Debug */ = {
+		BA2F11CD2E8883BC00EBAFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -444,7 +444,7 @@
 			};
 			name = Debug;
 		};
-		BA2F110A2E885A7400EBAFD5 /* Release */ = {
+		BA2F11CE2E8883BC00EBAFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -461,7 +461,7 @@
 			};
 			name = Release;
 		};
-		BA2F110C2E885A7400EBAFD5 /* Debug */ = {
+		BA2F11D02E8883BC00EBAFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -476,7 +476,7 @@
 			};
 			name = Debug;
 		};
-		BA2F110D2E885A7400EBAFD5 /* Release */ = {
+		BA2F11D12E8883BC00EBAFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -494,43 +494,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BA2F10DB2E885A7300EBAFD5 /* Build configuration list for PBXProject "Drawer" */ = {
+		BA2F119F2E8883BA00EBAFD5 /* Build configuration list for PBXProject "Drawer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA2F11032E885A7400EBAFD5 /* Debug */,
-				BA2F11042E885A7400EBAFD5 /* Release */,
+				BA2F11C72E8883BC00EBAFD5 /* Debug */,
+				BA2F11C82E8883BC00EBAFD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA2F11052E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "Drawer" */ = {
+		BA2F11C92E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "Drawer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA2F11062E885A7400EBAFD5 /* Debug */,
-				BA2F11072E885A7400EBAFD5 /* Release */,
+				BA2F11CA2E8883BC00EBAFD5 /* Debug */,
+				BA2F11CB2E8883BC00EBAFD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA2F11082E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerTests" */ = {
+		BA2F11CC2E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA2F11092E885A7400EBAFD5 /* Debug */,
-				BA2F110A2E885A7400EBAFD5 /* Release */,
+				BA2F11CD2E8883BC00EBAFD5 /* Debug */,
+				BA2F11CE2E8883BC00EBAFD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BA2F110B2E885A7400EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerUITests" */ = {
+		BA2F11CF2E8883BC00EBAFD5 /* Build configuration list for PBXNativeTarget "DrawerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BA2F110C2E885A7400EBAFD5 /* Debug */,
-				BA2F110D2E885A7400EBAFD5 /* Release */,
+				BA2F11D02E8883BC00EBAFD5 /* Debug */,
+				BA2F11D12E8883BC00EBAFD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BA2F10D82E885A7300EBAFD5 /* Project object */;
+	rootObject = BA2F119C2E8883BA00EBAFD5 /* Project object */;
 }

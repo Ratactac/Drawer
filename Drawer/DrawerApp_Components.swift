@@ -531,30 +531,13 @@ struct VolumeItemWithContextMenu: View {
                 .frame(width: 20)
                 .foregroundColor(volume.iconColor)
             
-            VStack(alignment: .leading, spacing: 2) {
-                Text(volume.name)
-                    .lineLimit(1)
-                    .foregroundColor(isSelected ? .white : .primary)
-                    .font(.system(size: 12))
-                
-                // Afficher l'espace utilisé
-                if volume.totalSpace > 0 {
-                    HStack(spacing: 4) {
-                        ProgressView(value: volume.usedSpace, total: volume.totalSpace)
-                            .progressViewStyle(LinearProgressViewStyle())
-                            .frame(height: 3)
-                            .scaleEffect(x: 1, y: 0.8, anchor: .center)
-                        
-                        Text(formatBytes(volume.totalSpace - volume.usedSpace))
-                            .font(.system(size: 9))
-                            .foregroundColor(.secondary)
-                    }
-                }
-            }
+            Text(volume.name)
+                .lineLimit(1)
+                .foregroundColor(isSelected ? .white : .primary)
+                .font(.system(size: 12))
             
             Spacer()
             
-            // Bouton d'éjection pour les volumes éjectables
             if isHovered && volume.isEjectable {
                 Button(action: { volume.eject() }) {
                     Image(systemName: "eject")
@@ -592,13 +575,6 @@ struct VolumeItemWithContextMenu: View {
                 }
             }
         }
-    }
-    
-    private func formatBytes(_ bytes: Double) -> String {
-        let formatter = ByteCountFormatter()
-        formatter.countStyle = .binary
-        formatter.allowsNonnumericFormatting = false
-        return formatter.string(fromByteCount: Int64(bytes))
     }
 }
 

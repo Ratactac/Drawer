@@ -5,6 +5,7 @@ import SwiftUI
 import AppKit
 
 // MARK: - 🆕 GESTIONNAIRE CENTRALISÉ DES FENÊTRES DE PRÉFÉRENCES
+
 class PreferencesWindowManager: ObservableObject {
     static let shared = PreferencesWindowManager()
     
@@ -16,6 +17,7 @@ class PreferencesWindowManager: ObservableObject {
     private init() {}
     
     // MARK: - Navigation Blur Settings Panel
+    
     func showNavigationBlurSettings() {
         // Vérifier si le panneau existe déjà
         if let existingPanel = blurSettingsPanel, existingPanel.isVisible {
@@ -868,6 +870,7 @@ struct TipRow: View {
     }
 }
 
+
 // MARK: - Trigger Zone Tab avec visualisation live
 struct TriggerZoneTab: View {
     @Binding var triggerMode: String
@@ -879,8 +882,6 @@ struct TriggerZoneTab: View {
     
     @State private var visualizationWindow: NSWindow?
     @State private var isVisualizingLive = false
-    
-
     
     var body: some View {
         VStack(spacing: 20) {
@@ -901,10 +902,9 @@ struct TriggerZoneTab: View {
                             subtitle: "Click in the zone",
                             isSelected: triggerMode == "click",
                             action: {
+                                // 🆕 REMPLACEZ juste par ces 2 lignes :
                                 triggerMode = "click"
-                                if let appDelegate = NSApp.delegate as? DrawerAppDelegate {
-                                    appDelegate.updateTriggerMode()
-                                }
+                                UserDefaults.standard.set("click", forKey: "triggerMode")
                             }
                         )
 
@@ -913,10 +913,9 @@ struct TriggerZoneTab: View {
                             subtitle: "Scroll up in the zone",
                             isSelected: triggerMode == "scroll",
                             action: {
+                                // 🆕 REMPLACEZ juste par ces 2 lignes :
                                 triggerMode = "scroll"
-                                if let appDelegate = NSApp.delegate as? DrawerAppDelegate {
-                                    appDelegate.updateTriggerMode()
-                                }
+                                UserDefaults.standard.set("scroll", forKey: "triggerMode")
                             }
                         )
 
@@ -925,13 +924,11 @@ struct TriggerZoneTab: View {
                             subtitle: "Simply hover over the zone",
                             isSelected: triggerMode == "hover",
                             action: {
+                                // 🆕 REMPLACEZ juste par ces 2 lignes :
                                 triggerMode = "hover"
-                                if let appDelegate = NSApp.delegate as? DrawerAppDelegate {
-                                    appDelegate.updateTriggerMode()
-                                }
+                                UserDefaults.standard.set("hover", forKey: "triggerMode")
                             }
-                        )
-                    }
+                        )                    }
                 }
                 .padding()
             }
@@ -956,6 +953,10 @@ struct TriggerZoneTab: View {
                             Slider(value: $triggerZoneWidth, in: 10...40, step: 5)
                                 .onChange(of: triggerZoneWidth) { _, _ in
                                     updateLiveVisualization()
+                                    // 🆕 Optionnel: Mettre à jour aussi la trigger zone en temps réel
+                                    if let appDelegate = NSApp.delegate as? DrawerAppDelegate {
+                                        appDelegate.updateTriggerMode()
+                                    }
                                 }
                             
                             Text("\(Int(triggerZoneWidth))%")
@@ -963,7 +964,6 @@ struct TriggerZoneTab: View {
                                 .foregroundColor(.secondary)
                                 .frame(width: 45, alignment: .trailing)
                         }
-                        
                     }
                     
                     // Note sur la visualisation
@@ -975,9 +975,6 @@ struct TriggerZoneTab: View {
                             .font(.system(size: 11))
                             .foregroundColor(.secondary)
                     }
-                    .padding(10)
-                    .background(Color.blue.opacity(0.05))
-                    .cornerRadius(6)
                 }
                 .padding()
             }
@@ -988,38 +985,42 @@ struct TriggerZoneTab: View {
                     HStack {
                         Image(systemName: "timer")
                             .foregroundColor(.secondary)
-                        Text("Delays")
+                        Text("Timing Settings")
                             .font(.system(size: 14, weight: .semibold))
                         Spacer()
                     }
                     
                     VStack(spacing: 16) {
                         HStack {
-                            Text("Opening:")
+                            Text("Show delay:")
                                 .font(.system(size: 12))
                                 .frame(width: 80, alignment: .leading)
                             
-                            Slider(value: $showDelay, in: 0.01...1.0, step: 0.01)
+                            Slider(value: $showDelay, in: 0...2, step: 0.1)
                             
-                            Text(String(format: "%.2f sec", showDelay))
+                            Text(String(format: "%.1fs", showDelay))
                                 .font(.system(size: 11, design: .monospaced))
                                 .foregroundColor(.secondary)
-                                .frame(width: 60, alignment: .trailing)
+                                .frame(width: 45, alignment: .trailing)
                         }
                         
                         HStack {
-                            Text("Closing:")
+                            Text("Hide delay:")
                                 .font(.system(size: 12))
                                 .frame(width: 80, alignment: .leading)
                             
-                            Slider(value: $hideDelay, in: 0.01...1.0, step: 0.01)
+                            Slider(value: $hideDelay, in: 0...2, step: 0.1)
                             
-                            Text(String(format: "%.2f sec", hideDelay))
+                            Text(String(format: "%.1fs", hideDelay))
                                 .font(.system(size: 11, design: .monospaced))
                                 .foregroundColor(.secondary)
-                                .frame(width: 60, alignment: .trailing)
+                                .frame(width: 45, alignment: .trailing)
                         }
                     }
+                    
+                    Text("Fine-tune how quickly the drawer responds")
+                        .font(.system(size: 11))
+                        .foregroundColor(.secondary)
                 }
                 .padding()
             }
@@ -1088,7 +1089,6 @@ struct TriggerZoneTab: View {
     private func showTriggerZoneIndicator() {
         guard let screen = NSScreen.main else { return }
         
-        // Toujours afficher la zone bleue dans l'onglet Trigger Zone
         let zoneWidthPixels = screen.frame.width * (triggerZoneWidth / 100.0)
         let zoneX = (screen.frame.width - zoneWidthPixels) / 2
         
