@@ -46,7 +46,7 @@ class DrawerManager: ObservableObject {
     @AppStorage("drawerHeightPercent") var drawerHeightPercent: Double = 0.6
     @AppStorage("currentBlur") var currentBlur: Double = 0.8
     
-    private let menuBarOffset: CGFloat = 28
+    private let menuBarOffset: CGFloat = 24
     private var mouseMonitor: Any?
     private var hideTimer: Timer?
     

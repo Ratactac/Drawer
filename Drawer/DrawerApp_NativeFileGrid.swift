@@ -81,7 +81,7 @@ class FileGridViewController: NSViewController {
         collectionView.allowsMultipleSelection = true
         collectionView.allowsEmptySelection = true
         collectionView.backgroundColors = [.clear]
-        collectionView.backgroundColors = [backgroundColor] 
+        collectionView.backgroundColors = [backgroundColor]
         
         let flowLayout = NSCollectionViewFlowLayout()
         // Réduire l'espace autour des items pour éviter les clics loin de l'icône

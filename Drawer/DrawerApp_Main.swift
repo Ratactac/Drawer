@@ -1,5 +1,5 @@
 // DrawerApp_Main.swift
-// Point d'entrée principal de l'application
+// Point d'entrée principal de l'application - Version corrigée
 
 import SwiftUI
 import AppKit
@@ -32,15 +32,42 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
     var showDelayTimer: Timer?
     private var wasInTriggerZone = false  // Pour tracker si on était dans la zone (mode hover)
     
+    // MARK: - Computed Property pour menuBarIcon (SOLUTION)
+    private var menuBarIcon: Bool {
+        // Si aucune valeur n'existe, initialiser à true et retourner true
+        if UserDefaults.standard.object(forKey: "menuBarIcon") == nil {
+            UserDefaults.standard.set(true, forKey: "menuBarIcon")
+            return true
+        }
+        return UserDefaults.standard.bool(forKey: "menuBarIcon")
+    }
+    
     // MARK: - Application Lifecycle
     func applicationDidFinishLaunching(_ notification: Notification) {
+        print("🔍 menuBarIcon au démarrage : \(menuBarIcon)")
+        print("🔍 UserDefaults menuBarIcon : \(UserDefaults.standard.object(forKey: "menuBarIcon") ?? "nil")")
+        
         // Mode accessoire (pas dans le Dock)
         NSApp.setActivationPolicy(.accessory)
         
         // Configurer le lancement au démarrage si activé
         configureLaunchAtLoginIfNeeded()
         
-        // Observer pour l'icône de la barre de menu
+        // SOLUTION : Toujours créer le statusBarItem
+        setupStatusBar()
+        
+        // Puis mettre à jour sa visibilité selon les préférences
+        updateMenuBarVisibility()
+        
+        // Observer pour les changements de menuBarIcon via KVO
+        UserDefaults.standard.addObserver(
+            self,
+            forKeyPath: "menuBarIcon",
+            options: [.new],
+            context: nil
+        )
+        
+        // Observer pour l'icône de la barre de menu (notification custom)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleMenuBarIconToggle(_:)),
@@ -59,22 +86,39 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         // Initialiser le drawer manager et la trigger zone
         Task { @MainActor in
             drawerManager = DrawerManager.shared
-            
-            // Créer l'icône de la barre de menu si activée
-            if UserDefaults.standard.bool(forKey: "menuBarIcon") {
-                setupStatusBar()
-            }
-            
             setupTriggerZone()
         }
     }
     
-    // Observer pour détecter les changements de triggerMode
+    // MARK: - Menu Bar Visibility Management (SOLUTION)
+    private func updateMenuBarVisibility() {
+        let shouldShow = UserDefaults.standard.object(forKey: "menuBarIcon") as? Bool ?? true
+        
+        if shouldShow {
+            statusBarItem?.isVisible = true
+            // Si le statusBarItem n'existe pas encore, le créer
+            if statusBarItem == nil {
+                setupStatusBar()
+            }
+        } else {
+            statusBarItem?.isVisible = false
+        }
+        
+        print("📊 Menu bar visibility updated: \(shouldShow)")
+    }
+    
+    // MARK: - KVO Observer
     override func observeValue(forKeyPath keyPath: String?,
                               of object: Any?,
                               change: [NSKeyValueChangeKey : Any]?,
                               context: UnsafeMutableRawPointer?) {
-        if keyPath == "triggerMode" {
+        
+        if keyPath == "menuBarIcon" {
+            // Mettre à jour la visibilité quand la préférence change
+            DispatchQueue.main.async { [weak self] in
+                self?.updateMenuBarVisibility()
+            }
+        } else if keyPath == "triggerMode" {
             print("🔄 Trigger mode changed via preferences!")
             DispatchQueue.main.async { [weak self] in
                 self?.updateTriggerMode()
@@ -104,7 +148,7 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func setupNewMonitor() {
-        let triggerMode = UserDefaults.standard.string(forKey: "triggerMode") ?? "click"
+        let triggerMode = UserDefaults.standard.string(forKey: "triggerMode") ?? "hover"
         print("🎯 Setting up monitor for mode: \(triggerMode)")
         
         switch triggerMode {
@@ -136,7 +180,6 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
             // Réinitialiser l'état
             self.wasInTriggerZone = false
             
-            
             // Monitor GLOBAL (quand l'app n'a pas le focus)
             triggerMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved]) { [weak self] event in
                 guard let self = self else { return }
@@ -146,7 +189,7 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
             // Monitor LOCAL (quand l'app a le focus)
             localHoverMonitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { [weak self] event in
                 guard let self = self else { return event }
-                self.handleHoverEvent()  // ✅ Pas de "?" après self
+                self.handleHoverEvent()
                 return event
             }
             
@@ -254,12 +297,11 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         return triggerZone.contains(location)
     }
     
-    // MARK: - Status Bar
+    // MARK: - Status Bar (MODIFIÉ pour toujours créer mais gérer la visibilité)
     func setupStatusBar() {
-        // Supprimer l'ancienne si elle existe
-        if let existingItem = statusBarItem {
-            NSStatusBar.system.removeStatusItem(existingItem)
-            statusBarItem = nil
+        // Ne pas recréer si elle existe déjà
+        if statusBarItem != nil {
+            return
         }
         
         // Créer la nouvelle icône
@@ -318,6 +360,10 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         doubleViewItem.target = self
         submenu.addItem(doubleViewItem)
         
+        let minimalViewItem = NSMenuItem(title: "Minimal View", action: #selector(setMinimalView), keyEquivalent: "3")
+        minimalViewItem.target = self
+        submenu.addItem(minimalViewItem)
+        
         modeMenu.submenu = submenu
         menu.addItem(modeMenu)
         
@@ -372,6 +418,12 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @objc private func setMinimalView() {
+        Task { @MainActor in
+            drawerManager?.setDisplayMode(.minimal)
+        }
+    }
+    
     @objc private func toggleLaunchAtLogin(_ sender: NSMenuItem) {
         let newState = sender.state != .on
         sender.state = newState ? .on : .off
@@ -379,15 +431,11 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func handleMenuBarIconToggle(_ notification: Notification) {
+        // Cette méthode est pour la compatibilité avec l'ancienne notification custom
+        // La vraie gestion se fait maintenant via KVO
         if let enabled = notification.userInfo?["enabled"] as? Bool {
-            if enabled {
-                setupStatusBar()
-            } else {
-                if let item = statusBarItem {
-                    NSStatusBar.system.removeStatusItem(item)
-                    statusBarItem = nil
-                }
-            }
+            UserDefaults.standard.set(enabled, forKey: "menuBarIcon")
+            updateMenuBarVisibility()
         }
     }
     
@@ -511,6 +559,17 @@ class DrawerAppDelegate: NSObject, NSApplicationDelegate {
         
         // Nettoyer les timers
         showDelayTimer?.invalidate()
+        
+        // Retirer les observers KVO
+        UserDefaults.standard.removeObserver(self, forKeyPath: "menuBarIcon")
+        UserDefaults.standard.removeObserver(self, forKeyPath: "triggerMode")
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        // Sécurité supplémentaire pour les observers
+        UserDefaults.standard.removeObserver(self, forKeyPath: "menuBarIcon", context: nil)
+        UserDefaults.standard.removeObserver(self, forKeyPath: "triggerMode", context: nil)
     }
 }
 

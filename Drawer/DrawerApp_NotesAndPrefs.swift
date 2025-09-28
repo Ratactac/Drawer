@@ -256,8 +256,8 @@ class PreferencesWindowManager: ObservableObject {
 
 // MARK: - Preferences View (Version complète restaurée)
 struct PreferencesView: View {
-    @AppStorage("hideDelay") private var hideDelay: Double = 0.5
-     @AppStorage("triggerMode") private var triggerMode: String = "click"
+    @AppStorage("hideDelay") private var hideDelay: Double = 0.01
+     @AppStorage("triggerMode") private var triggerMode: String = "hover"
     @AppStorage("notesEnabled") private var notesEnabled: Bool = false
     @AppStorage("notesPanelWidth") private var notesPanelWidth: Double = 300
     @AppStorage("launchAtLogin") private var launchAtLogin: Bool = false
@@ -996,9 +996,9 @@ struct TriggerZoneTab: View {
                                 .font(.system(size: 12))
                                 .frame(width: 80, alignment: .leading)
                             
-                            Slider(value: $showDelay, in: 0...2, step: 0.1)
+                            Slider(value: $showDelay, in: 0.01...1, step: 0.01)
                             
-                            Text(String(format: "%.1fs", showDelay))
+                            Text(String(format: "%.2fs", showDelay))
                                 .font(.system(size: 11, design: .monospaced))
                                 .foregroundColor(.secondary)
                                 .frame(width: 45, alignment: .trailing)
@@ -1009,9 +1009,9 @@ struct TriggerZoneTab: View {
                                 .font(.system(size: 12))
                                 .frame(width: 80, alignment: .leading)
                             
-                            Slider(value: $hideDelay, in: 0...2, step: 0.1)
+                            Slider(value: $hideDelay, in: 0.01...1, step: 0.01)
                             
-                            Text(String(format: "%.1fs", hideDelay))
+                            Text(String(format: "%.2fs", hideDelay))
                                 .font(.system(size: 11, design: .monospaced))
                                 .foregroundColor(.secondary)
                                 .frame(width: 45, alignment: .trailing)
